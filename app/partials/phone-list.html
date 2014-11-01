@@ -1,0 +1,30 @@
+
+<h1>This is the Phone List</h1>
+<div class="container-fluid">
+    <div class="row">
+    <div class="col-md-2">
+      
+      <p>print some change</p>
+      {{phoneList.orderProp}}
+      Search with change: <input ng-model="phoneList.query">
+      Sort by:
+      <select ng-model="phoneList.orderProp">
+        <option value="name">Alphabetical</option>
+        <option value="age">Newest</option>
+      </select>
+
+    </div>
+    <div class="col-md-10">
+      
+      <ul class="phones">
+        <li ng-repeat="phone in phoneList.phones | filter:phoneList.query | orderBy:phoneList.orderProp"
+            class="thumbnail phone-listing">
+          <a href="phones/{{phone.id}}" class="thumb"><img ng-src="{{phone.imageUrl}}"></a>
+          <a href="phones/{{phone.id}}">{{phone.name}}</a>
+          <p>{{phone.snippet}}</p>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</div>  
