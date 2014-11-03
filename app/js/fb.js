@@ -16,9 +16,9 @@
 
     // get the angular controller to trigger login changes there.
     var scope = angular.element($(ngRootID)).scope();
-    var ngUser = scope.rootController.user;
-    var ngLoginFn = scope.rootController.login;
-    var ngLogoutFn = scope.rootController.logout;
+    var ngUser = scope.rootController.userService.user;
+    var ngLoginFn = scope.rootController.userService.login;
+    var ngLogoutFn = scope.rootController.userService.logout;
 
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
@@ -130,7 +130,7 @@
   // app, if not re-request them
   function testPermissions(response, redirector){
 
-    console.log('Checking your permissions...');
+    console.log('Checking your FB permissions...');
     
     var permissionsOK = true;
     FB.api('/me/permissions', function(response) {

@@ -8,20 +8,11 @@ phonecatControllers.controller('RootCtrl',
   ['$scope', '$route', '$routeParams', '$location', 'userService',
   function($scope, $route, $routeParams, $location, userService) {
     console.log('RootCtrl');
-    this.user = userService.user;
     this.$route = $route;
     this.$location = $location;
     this.$routeParams = $routeParams;
 
-    this.login = function(user) {
-      userService.login(user);
-      console.log('ng logging in user: ' + user.username );
-    };
-
-    this.logout = function(user) {
-      console.log('ng logging out user: ' + user.username );
-      userService.logout(user);
-    };
+    this.userService = userService;
 
     $scope.rootController = this;
 }]);
@@ -38,7 +29,7 @@ phonecatControllers.controller('PhoneListCtrl', ['Phone', 'userService',
     this.orderProp = 'age';
   }]);
 
-phonecatControllers.controller('PhoneDetailCtrl', ['$scope', '$routeParams', 'Phone', 'userServices',
+phonecatControllers.controller('PhoneDetailCtrl', ['$scope', '$routeParams', 'Phone', 'userService',
   function($scope, $routeParams, Phone, userService) {
       console.log('PhoneDetailCtrl');
       

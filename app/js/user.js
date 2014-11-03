@@ -33,7 +33,9 @@ userLogout.factory('logout', ['user', function (user) {
 }]);
 
 var userServices = angular.module('userServices', ['userInit', 'userLogin', 'userLogout']);
-userServices.factory('userService', ['user','login','logout', function(user, login, logout) {
+userServices.factory('userService', ['user','login','logout',
+						     function(user, login, logout) {
+
 
 	var userServ = {
 		user: user,
