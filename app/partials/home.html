@@ -1,0 +1,17 @@
+<div>
+	<h1>This is the public home page</h1>
+	<button class="btn btn-primary" ui-sref="app.dashboard">Go to Dashboard</button>
+	<fb:login-button size="medium" onlogin="">
+  		Connect with Facebook
+	</fb:login-button>
+</div>
+
+<script type="text/javascript">
+
+$(function() {
+	try {
+		FB.XFBML.parse();
+	} catch(ex) {}
+});
+	
+</script>
