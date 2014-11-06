@@ -1,9 +1,9 @@
 
-var phonecatApp = angular.module('phonecatApp');
+var nmo = angular.module('nmo');
 
-phonecatApp.run(function($rootScope, $templateCache) {
-	$rootScope.$on('$viewContentLoaded', function() {
-		console.log('clearing template cache');
-      	$templateCache.removeAll();
+nmo.run(function($rootScope, $templateCache) {
+	$rootScope.$on('$viewContentLoaded', function(data) {
+		console.log('loaded template: ');
+      	//$templateCache.removeAll();
    });
 });

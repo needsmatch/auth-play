@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en" ng-app="phonecatApp" class="auth-check">
+<html lang="en" ng-app="nmo" class="auth-check">
 <head>
   <base href="/Angular/">
   <meta charset="utf-8">
-  <title>Google Phone Gallery</title>
+  <title>Angular NMO</title>
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
   <link rel="stylesheet" href="css/app.css">
   <link rel="stylesheet" href="css/animations.css">
@@ -13,48 +13,38 @@
   <script src="bower_components/angular-animate/angular-animate.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
   <script src="js/app.js"></script>
-  <script src="js/animations.js"></script>
-  <script src="js/controllers.js"></script>
-  <script src="js/filters.js"></script>
-  <script src="js/authentication.js"></script>
-  <script src="js/services.js"></script>
-  <script src="js/user.js"></script>
-  
-  <script src="js/clear_cache.js"></script>
-
+  <script src="js/services/auth.js"></script>
+  <script src="js/services/user.js"></script>
+  <script src="js/controllers/root-controller.js"></script>
+  <script src="js/controllers/controllers.js"></script>
+    
 </head>
 <body>
   <div id="fb-root"></div>
-
   <div id="root" ng-controller="RootCtrl as root">
 
-    <input type="button" data-ng-click="root.login(root.user)">
-    <fb:login-button scope="public_profile,email,user_friends" onlogin="onLogin();">
-    </fb:login-button>
-
-    <div id="status">
-    </div>
-    <!-- <p>User Name: {{UserService.username}}</p> -->
-
-    <input type="button" value ="Log Out" data-ng-click="root.logout(root.user)" onClick="logOut();">
-
-    <a href="./phones">see phones</a>
-
+    
     <div class="view-container">
-      <div ng-view class="view-frame"></div>
+      <div ui-view class="view-frame">
+
+        App is Loading ...
+
+      </div>
     </div>
 
     <hr/>
 
-    <pre>$location.path() = {{root.$location.path()}}</pre>
-    <pre>$route.current.templateUrl = {{root.$route.current.templateUrl}}</pre>
+    <pre>$state = {{root.$state}}</pre>
+<!--     <pre>$route.current.templateUrl = {{root.$route.current.templateUrl}}</pre>
     <pre>$route.current.params = {{root.$route.current.params}}</pre>
-    <pre>$routeParams = {{root.$routeParams}}</pre>
-    <pre>User Name = {{root.user.username}}</pre>
-    <pre>Logged In = {{root.user.isLoggedIn}}</pre>
+    <pre>$routeParams = {{root.$routeParams}}</pre> -->
+    <pre>User Name = {{root.userService.user.username}}</pre>
+    <pre>Logged In = {{root.userService.user.isLoggedIn}}</pre>
+
   </div>
 
-  <script src="js/fb.js"></script>
+
 </body>
 </html>
